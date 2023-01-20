@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+<!--[queryParams] IS ANOTHER BINDABLE PROPERTY OF THE [routerLink] DIRECTIVE -->
+      <a
+         [routerLink]="['/servers', server.id]"
+         [queryParams]="{allowEdit: server.id === 3 ? '1' : '0'}"
+         fragment="loading"
+         href="#"
+         class="list-group-item"
+         *ngFor="let server of servers">
+        {{ server.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+<!--THIS ADDS A NEW HOOK USED ON ALL CHILD ROUTES OF THE ROUTE BEING LOADED ON THE SERVERS COMPONENT WHICH IS THE /servers ROUTE -->
+    <router-outlet></router-outlet>
+    <!-- <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
+    <app-edit-server></app-edit-server>
+    <hr>
+    <app-server></app-server> -->
+  </div>
+</div>
